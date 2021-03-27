@@ -1,9 +1,6 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## THE FILE makeCacheMatrix_v1.R --> was made in my computer in commite to Gihub 
-### EDITION MADE IN GIHUB. 
-
 
 ## Write a short comment describing this function
 
