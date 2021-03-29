@@ -1,0 +1,37 @@
+## Assignment WEEK02
+
+## Notes
+
+## >help(getwd)
+## >?getwd  --> open a windon on Help window on Rstudio to explain the function 
+## >getwd()  --> show the current directory
+
+## to read csv files
+##> data <- read.csv("001.csv", header = T) --> load the file on Rstudio, can see on Env. Windown 
+##> View(data) --> to annalist the data
+
+
+##?list.files -> create a caracter of the names of files specific in the directory
+##?read.csv --> to read csv files
+##?rbind --> Combine R Objects by Rows or Columns
+##? mean --> to calculate the mean of value
+
+
+## second way to solve:
+## when all the files are in the same directory of the code
+
+pollutantmean <- function(directory, pollutant, id = 1:332)  {
+  files_list <- list.files(directory, full.names=TRUE)
+  DF <- data.frame()
+  for (i in 1:332) {                                
+    DF <- rbind(DF, read.csv(files_list[i]))
+   }
+  DF_subset <- DF[which(DF[, "ID"] %in% id),]
+  ##print("ok", class(DF_subset))
+  mean(DF_subset[, pollutant], na.rm=TRUE)
+}
+
+## to run in my console:
+##> pollutantmean("specdata", "sulfate", 1:10)
+##[1] 4.064128
+##> 
